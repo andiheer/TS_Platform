@@ -1,0 +1,23 @@
+{% extends "userlogin/layout_loggedin.html" %}
+
+{% block content %}
+
+<h2>Profile</h2>
+
+{% if user.is_authenticated %}
+    Hello {{ user.username }}
+
+{% else %}
+    You must log in to access this page.  
+
+{% endif %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'userlogin/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "userlogin/layout_loggedin.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+  
+{% if user.is_authenticated %}  
+
+    {% for offer_item in offers_query %}
+      <p><a href="details/{{ offer_item.id }}/">{{ offer_item.offering_text }}</a></p>
+        
+    {% endfor %}
+    
+{% else %}
+{{ errormessage }}
+
+{% endif %}
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'userlogin/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
